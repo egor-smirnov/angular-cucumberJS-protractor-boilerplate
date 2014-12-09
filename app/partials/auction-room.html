@@ -1,0 +1,32 @@
+<section class="auctionItem">
+    <h2 class="auctionItem__name">
+        {{vm.currentAuctionItem.name}}
+    </h2>
+    <img ng-src="{{vm.currentAuctionItem.picture}}" class="auctionItem__picture">
+    <div class="auctionItem__description">
+        {{vm.currentAuctionItem.description}}
+    </div>
+</section>
+<section class="auctionBid">
+    <div class="auctionBid__currentHighestBid">
+        Current highest bid: €{{vm.currentAuctionItem.currentBid}}
+    </div>
+    <button class="auctionBid__placeNewBidBtn center-block btn btn-success" ng-click="vm.placeBidOnCurrentItem()">
+        Place new bid for €{{vm.currentAuctionItem.nextBid}}
+    </button>
+    <div class="auctionBid__highestBidder">
+        Highest bid by: {{vm.highestBidder.name}}
+    </div>
+    <h4>All bidders</h4>
+    <ul class="auctionBid__allBidders">
+        <li ng-repeat="bidder in vm.currentBidders">
+            {{bidder.name}}
+        </li>
+    </ul>
+    <h4>Bids by time</h4>
+    <ul class="auctionBid__allBids">
+        <li ng-repeat="bid in vm.currentBids">
+            Bid by {{bid.name}}
+        </li>
+    </ul>
+</section>
